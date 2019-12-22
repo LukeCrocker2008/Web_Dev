@@ -1,0 +1,882 @@
+<p id="firstPtag">Below is an interactive map of Camp Moriah and its facilities; <a href="#touche">hover*</a> over places on the map and click on them for information about these facilities:</p> 
+<script>
+  function clearTitles(){
+   jQuery(".mapTitles").hide();
+   var spanTouche = jQuery("#spanTouche");
+   jQuery(spanTouche).addClass("titlesShown");
+   jQuery(spanTouche).text("click here to show");
+   jQuery(spanTouche).css("color", "#1982d1");
+   jQuery(spanTouche).css("cursor", "pointer");
+   jQuery(spanTouche).click(function(){
+     jQuery(".mapTitles").toggle();
+     jQuery(this).toggleClass("titlesShown");
+        if ( jQuery(this).hasClass("titlesShown") ) {
+           jQuery(this).text("click here to show");
+        } else {
+           jQuery(this).text("click here to hide");
+        }
+   });
+ }
+ function seeGallery() {
+     jQuery(this).prev().toggle();
+     jQuery(this).toggleClass("showGallery");
+        if ( jQuery(this).hasClass("showGallery") ) {
+           jQuery(this).text("Show Gallery");
+        } else {
+           jQuery(this).text("Hide Gallery");
+        }
+   }
+ function organizeMapGallery(){
+   jQuery(".mapGalleries").hide();
+   var galleryParagraph = jQuery("<" + "p" + "><" + "/p" + ">");
+   jQuery(galleryParagraph).addClass("showGallery");
+   jQuery(galleryParagraph).text("Show Gallery");
+   jQuery(galleryParagraph).css("color", "#1982d1");
+   jQuery(galleryParagraph).css("cursor", "pointer");
+   jQuery(galleryParagraph).css("clear", "both");
+   jQuery(galleryParagraph).css("font-weight", "bold");
+   jQuery(".mapSections").append(galleryParagraph);
+   jQuery(".mapGalleries").next().click(seeGallery);
+ }
+ var loadJS = function(){
+  organizeMapGallery();
+  clearTitles();
+ }
+window.onload = loadJS;
+</script>
+<style>
+  .facil:hover {		
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+    -webkit-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .medium-facil:hover {		
+    -webkit-transform: scale(1.3, 1.3);
+    -ms-transform: scale(1.3, 1.3);
+    transform: scale(1.3, 1.3);
+    -webkit-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .small-facil:hover {		
+    -webkit-transform: scale(2, 2);
+    -ms-transform: scale(2, 2);
+    transform: scale(2, 2);
+    -webkit-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .places:target {
+    margin-left: 25px;
+    font-weight: 800;
+    -webkit-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  #post-201 ul li {
+    float: left;
+    display: block;
+  }
+  #smallScreen {
+    display: none;
+  } 
+</style>
+<p id="smallScreen"><strong><em>If you are seeing this paragraph, you are viewing this page on a screen/browser smaller than 480 pixels. In that case, the map is too big for your screen to be useful.</strong></em></p>
+<div id="mapImage" style=""><img src="http://campmoriah.org/wp-content/uploads/2015/07/map1.png" id="imageMap"><a href="#pavilion"><span id="pav" class="mapTitles">Pavilion</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/pavilion.png" class="facil" style="position: absolute;" title="Pavilion"></a>
+<a href="#office"><span id="offi" class="mapTitles">Office</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/office.png" class="small-facil" style="position: absolute;" title="Office"></a>
+<a href="#mothers"><span id="mot" class="mapTitles">Mothers'<br> Cabin</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/mothers-cabin.png" class="medium-facil" style="position: absolute;" title="Mothers' Cabin"></a>
+<a href="#family-and-campers"><span id="fam" class="mapTitles">Family Tent/Camper Area</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/family-and-campers.png" class="facil" style="position: absolute;" title="Family Tent/Camper Area"></a>
+<a href="#lake"><span id="lak" class="mapTitles">Lake</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/lake.png" class="facil" style="position: absolute;" title="Lake"></a>
+<a href="#girls"><span id="gir" class="mapTitles">Girls'<br>Cabin</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/girls-cabin.png" class="facil" style="position: absolute;" title="Girls' Cabin"></a>
+<a href="#girls-tents"><span id="gir-t" class="mapTitles">Girls'<br>Tent<br>Area</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/girls-tents.png" class="medium-facil" style="position: absolute; z-index: 1;" title="Girls' Tent Area"></a>
+<a href="#boys"><span id="boy" class="mapTitles">Boys'<br>Cabin</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/boys-cabin.png" class="facil" style="position: absolute;" title="Boys' Cabin"></a>
+<a href="#boys-tents"><span id="boy-t" class="mapTitles">Boys' Tent Area</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/boys-tents.png" class="medium-facil" style="position: absolute;" title="Boys' Tent Area"></a>
+<a href="#bonfire"><span id="bon" class="mapTitles">Bonfire</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/bonfire.png" class="small-facil" style="position: absolute;" title="Bonfire"></a>
+<a href="#basketball"><span id="bask" class="mapTitles">Basketball<br> Court</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/basketball.png" class="medium-facil" style="position: absolute;" title="Basketball Court"></a>
+<a href="#volleyball"><span id="vol" class="mapTitles">Volleyball Court</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/volleyball.png" class="medium-facil" style="position: absolute;" title="Volleyball Court"></a>
+<a href="#softball"><span id="sof" class="mapTitles">Softball Fields</span><img src="http://campmoriah.org/wp-content/uploads/2015/07/softball-fields.png" class="facil" style="position: absolute;" title="Softball Fields"></a></div>
+<br><p id="touche">*If you're using a touchscreen device with scripts running, you may <span id="spanTouche"></span> the titles of the facilities.</p>
+
+<br><div class="mapSections"><h4 id="pavilion" class="places">The Pavilion</h4><p>This facility is the center of Camp Moriah's activities. Here campers meet together to eat and worship. A playground is located just west of the pavilion, providing swings and play equipment for young children.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0536.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0536-150x150.jpg" alt="IMG_0536" width="150" height="150" class="alignnone size-thumbnail wp-image-497" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0657-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0657-Copy-150x150.jpg" alt="IMG_0657 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-504" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1806.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1806-150x150.jpg" alt="IMG_1806" width="150" height="150" class="alignnone size-thumbnail wp-image-507" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1727.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1727-150x150.jpg" alt="IMG_1727" width="150" height="150" class="alignnone size-thumbnail wp-image-506" /></a></li></ul></div><br>
+
+<br><div class="mapSections"><h4 id="mothers" class="places">The Mothers' Cabin</h4><p>The Mothers' Cabin, as indicated by the name, provides moms with babies and toddlers a special place to rest. It consists of a bunkhouse, a bathroom, and a place for young children to play.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+
+<br><div class="mapSections"><h4 id="family-and-campers" class="places">Family Tents/Camper Area</h4><p>This area is set aside for families to set up their tents. Campers and RVs are also set up in this area.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+
+<br><div class="mapSections"><h4 id="softball" class="places">Softball Fields</h4><p>These green fields on the west side of the lake are used for softball/baseball games as well as spontaneous Ultimate Frisbee games. Camp Moriah sets up tournaments for each of these games.</p><br><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/3.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/3-150x150.jpg" alt="3" width="150" height="150" class="alignnone size-thumbnail wp-image-428" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1504-Copy1.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1504-Copy1-150x150.jpg" alt="IMG_1504 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-425" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1479-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1479-Copy-150x150.jpg" alt="IMG_1479 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-513" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1456.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1456-150x150.jpg" alt="IMG_1456" width="150" height="150" class="alignnone size-thumbnail wp-image-512" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1445-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1445-Copy-150x150.jpg" alt="IMG_1445 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-511" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1502-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1502-Copy-150x150.jpg" alt="IMG_1502 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-514" /></a></li></ul></div>
+
+<br><div class="mapSections"><h4 id="volleyball" class="places">Volleyball Court</h4><p>The volleyball court consists of dirt and a net; campers spontaneously play each other during recreation. Camp Moriah will set up a tournament for this sport.</p><br><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0566-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0566-Copy-150x150.jpg" alt="IMG_0566 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-501" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1283.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1283-150x150.jpg" alt="IMG_1283" width="150" height="150" class="alignnone size-thumbnail wp-image-505" /></a></li></ul></div>
+
+<br><div class="mapSections"><h4 id="girls" class="places">The Girls' Cabin</h4><p>These cabins consists of two bunkhouses, one for older girls and the other for the younger. There are two girl bath houses which has toilets and showers.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+
+<br><div class="mapSections"><h4 id="girls-tents" class="places">The Girls' Tent Area</h4><p>This area is set aside for girl's or women to set up their tents</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+<br><div class="mapSections"><h4 id="basketball" class="places">Basketball Court</h4><p>The basketball court is laid down with concrete; campers spontaneously play each other during recreation. Camp Moriah will set up a tournament for this sport.</p><br><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/05/764f9cb5_resized.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/05/764f9cb5_resized-150x150.jpg" alt="764f9cb5_resized" width="150" height="150" class="alignnone size-thumbnail wp-image-139" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/2.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/2-150x150.jpg" alt="2" width="150" height="150" class="alignnone size-thumbnail wp-image-427" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1182-Copy.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1182-Copy-150x150.jpg" alt="IMG_1182 - Copy" width="150" height="150" class="alignnone size-thumbnail wp-image-500" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0968.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0968-150x150.jpg" alt="IMG_0968" width="150" height="150" class="alignnone size-thumbnail wp-image-495" /></a></li></ul></div>
+
+<br><div class="mapSections"><h4 id="lake" class="places">The Lake</h4><p>The lake, south of the Pavilion, is where campers go ride in canoes, sometimes racing each other. It is also used for fishing.</p><br><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/05/77185950_resized.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/05/77185950_resized-150x150.jpg" alt="77185950_resized" width="150" height="150" class="alignnone size-thumbnail wp-image-164" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0614.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0614-150x150.jpg" alt="IMG_0614" width="150" height="150" class="alignnone size-thumbnail wp-image-502" /></a></li>	<li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0618.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0618-150x150.jpg" alt="IMG_0618" width="150" height="150" class="alignnone size-thumbnail wp-image-503" /></a></li><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0702.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_0702-150x150.jpg" alt="IMG_0702" width="150" height="150" class="alignnone size-thumbnail wp-image-496" /></a></li></ul></div>
+
+<br><div class="mapSections"><h4 id="boys" class="places">The Boys' Cabin</h4><p>These cabins consists of two bunkhouses, one for older boys and the other for the younger. There is one bath house for the guys which has toilets and showers.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li><a href="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1807.jpg"><img src="http://campmoriah.org/wp-content/uploads/2015/08/IMG_1807-150x150.jpg" alt="IMG_1807" width="150" height="150" class="alignnone size-thumbnail wp-image-508" /></a></li></ul></div>
+
+<br><div class="mapSections"><h4 id="boys-tents" class="places">The Boys' Tent Area</h4><p>This area is set aside for boys or men to set up their tents.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+
+<br><div class="mapSections"><h4 id="bonfire" class="places">Bonfire</h4><p>A spot set aside for a large campfire on Friday evening.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+
+<br><div class="mapSections"><h4 id="office" class="places">The Office</h4><p>The office is used for registration as your family enters camp for the week. it is also used for signing in and out of camp in the event that you need to leave for a short time.</p><ul class="mapGalleries" style="list-style: none; float: left;"><li>There are no images yet in this gallery.</li></ul></div>
+<style>
+    #mapImage {
+      width: 590px;
+      height: 530px;
+      margin-left: -30px;
+    }
+    #imageMap {
+      border: 1px solid black; 
+      margin-left: 17px;
+    }
+    .mapTitles {
+       z-index: 2;
+       display: inline;
+       position: relative;
+       color: black;
+       text-align: center;
+       font-weight: 600;
+     }
+   #mapImage a:hover {
+     text-decoration: none;
+     font-weight: bold;
+    }
+    img[title="Pavilion"] { 
+       left: 209px; 
+       top: 297px;
+       height: 96px;
+    }
+    #pav {
+      left: 250px;
+      top: -340px;
+    }
+    img[title="Office"] { 
+       left: 322px; 
+       top: 224px;
+       height: 85px;
+    }
+    #offi {
+      left: 340px;
+      top: -440px;
+    }
+    img[title="Mothers' Cabin"] {
+      left: 310px; 
+      top: 350px;
+      height: 47px;
+    }
+    #mot {
+      left: 315px;
+      top: -375px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 55px; 
+      top: 155px;
+      height: 100px; 
+    }
+    #fam {
+     left: 100px;
+     top: -575px;
+    }
+    img[title="Lake"] {
+      left: 265px; 
+      top: 474px;
+      height: 173px;
+    }  
+    #lak {
+      left: 400px;
+      top: -240px;
+    }
+    img[title="Girls' Cabin"] {
+      left: 217px; 
+      top: 402px;
+      height: 113px;
+    }
+    #gir {
+      left: 240px;
+      top: -380px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 192px; 
+      top: 422px;
+      height: 98px;
+    }
+    #gir-t {
+      left: 185px;
+      top: -440px;
+    }
+    img[title="Boys' Cabin"] {
+      left: 469px;
+      top: 224px;
+      height: 86px;
+    }
+    #boy {
+      left: 490px;
+      top: -690px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 410px; 
+      top: 150px;
+      height: 66px;
+    }
+    #boy-t {
+      left: 410px;
+      top: -810px;
+    }
+    img[title="Bonfire"] {
+      left: 85px; 
+      top: 309px;
+      height: 40px;
+    }
+    #bon {
+      left: 77px;
+      top: -675px;
+     }
+    img[title="Basketball Court"] {
+      left: 379px; 
+      top: 349px;
+      height: 53px;
+    }
+    #bask {
+      left: 395px;
+      top: -680px;
+    }
+    img[title="Volleyball Court"] {
+      left: 294px; 
+      top: 402px;
+      height: 37px;
+    }
+    #vol {
+      left: 260px;
+      top: -680px;
+    }
+    img[title="Softball Fields"] {
+      left: 36px; 
+      top: 475px;
+      height: 154px;
+    }
+    #sof {
+      left: 70px;
+      top: -570px;
+    }
+/* Smaller than standard 1024px (devices and browsers) ----------- */
+  @media screen and (max-width: 1024px) {
+    #mapImage, #mapImage img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    img[title="Pavilion"] {
+      left: 187px; 
+      top: 280px;
+    }
+    #pav {
+      left: 226px;
+      top: -322px;
+    }
+    img[title="Office"] { 
+      left: 295px; 
+      top: 212px;
+    }
+    #offi {
+      left: 319px;
+      top: -405px;
+    }
+    img[title="Mothers' Cabin"] {
+      left: 284px;
+      top: 333px;
+    }
+    #mot {
+      left: 294px;
+      top: -353px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 48px; 
+      top: 150px;
+      height: 95px; 
+    }
+    #fam {
+      left: 106px;
+      top: -545px;
+    }
+    img[title="Lake"] {
+      left: 238px; 
+      top: 444px;
+      height: 168px;
+    }  
+    #lak {
+      left: 367px;
+      top: -241px;
+    }
+    img[title="Girls' Cabin"] {
+      left: 201px;
+      top: 385px;
+      height: 100px;
+    }
+    #gir {
+      left: 230px;
+      top: -366px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 174px; 
+      top: 397px;
+      height: 95px;
+    }
+    #gir-t {
+      left: 173px;
+      top: -430px;
+    }
+    img[title="Boys' Cabin"] { 
+     left: 435px;
+     top: 214px;
+     height: 82px;
+    }
+    #boy {
+      left: 463px;
+      top: -668px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 381px;
+      top: 145px;
+      height: 62px;
+    }
+    #boy-t {
+      left: 380px;
+      top: -795px;
+    }
+    img[title="Bonfire"] {
+      left: 75px; 
+      top: 293px;
+    }
+    #bon {
+      left: 75px;
+      top: -655px;
+    }
+    img[title="Basketball Court"] {
+      left: 350px; 
+      top: 330px;
+    }
+    #bask {
+      left: 357px;
+      top: -651px;
+    }
+    img[title="Volleyball Court"] {
+      left: 273px; 
+      top: 378px;
+    }
+    #vol {
+      left: 248px;
+      top: -662px;
+    }
+    img[title="Softball Fields"] {
+      left: 25px;
+      top: 448px;
+      height: 150px; 
+    }
+    #sof {
+      left: 62px;
+      top: -560px;
+    }
+  }
+  @media screen and (max-width: 990px) {
+    img[title="Pavilion"] {
+      left: 168px;
+      top: 290px;
+      height: 90px;
+    }
+    #pav {
+      left: 207px;
+      top: -300px;
+    }
+    img[title="Office"] { 
+      left: 265px;
+      top: 227px;
+    }
+    #offi {
+      left: 289px;
+      top: -365px;
+    }
+    img[title="Mothers' Cabin"] {
+      left: 260px;
+      top: 339px;
+      height: 40px;
+    }
+    #mot {
+      left: 267px;
+      top: -332px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 44px;
+      top: 173px;
+      height: 86px;
+    }
+    #fam {
+      left: 96px;
+      top: -507px;
+    }
+    img[title="Lake"] {
+      left: 212px;
+      top: 440px;
+      height: 154px;
+    }  
+    #lak {
+      left: 335px;
+      top: -235px;
+    }
+    img[title="Girls' Cabin"] {
+      left: 182px;
+      top: 385px;
+      height: 94px;
+    }
+    gir {
+      left: 210px;
+      top: -347px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 158px;
+      top: 397px;
+      height: 90px;
+    }
+    #gir-t {
+      left: 157px;
+      top: -411px;
+    }
+    img[title="Boys' Cabin"] { 
+      left: 393px;
+      top: 229px;
+      height: 77px;
+    }
+    #boy {
+      left: 420px;
+      top: -640px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 346px;
+      top: 170px;
+      height: 56px;
+    }
+    #boy-t {
+      left: 340px;
+      top: -750px;
+    }
+    img[title="Bonfire"] {
+      left: 67px;
+      top: 300px;
+    }
+    #bon {
+      left: 65px;
+      top: -623px;
+    }
+    img[title="Basketball Court"] {
+      left: 319px;
+      top: 336px;
+      height: 48px;
+    }
+    #bask {
+      left: 331px;
+      top: -633px;
+    }
+    img[title="Volleyball Court"] {
+      left: 246px;
+      top: 383px;
+      height: 32px;
+    }
+    #vol {
+      left: 216px;
+      top: -638px;
+    }
+    img[title="Softball Fields"] {
+      left: 19px;
+      top: 440px;
+      height: 143px;
+    }
+    #sof {
+      left: 56px;
+      top: -550px;
+    }
+  }
+/* iPad Portrait and other Smaller then standard 960 (devices and browsers) ----------- */
+  @media screen and (max-width: 960px) {
+    #imageMap { 
+      margin-left: 75px;
+    }
+    img[title="Pavilion"] { 
+      left: 257px;
+      top: 287px;
+      height: 96px;
+    }
+    #pav {
+      left: 310px;
+      top: -350px;
+    }
+    img[title="Office"] { 
+      left: 370px;
+      top: 214px;
+      height: 85px;
+    }
+    #offi {
+      left: 397px;
+      top: -431px;
+    }
+    img[title="Mothers' Cabin"] {
+      left: 357px;
+      top: 340px;
+      height: 47px;
+    }
+    #mot {
+      left: 366px;
+      top: -377px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 103px;
+      top: 146px;
+      height: 100px;
+    }
+    #fam {
+      left: 174px;
+      top: -577px;
+    }
+    img[title="Lake"] {
+      left: 313px;
+      top: 464px;
+      height: 173px;
+    }  
+    #lak {
+      left: 460px;
+      top: -245px;
+    }
+    img[title="Girls' Cabin"] {
+      left: 265px;
+      top: 393px;
+      height: 113px;
+    }
+    #gir {
+      left: 306px;
+      top: -379px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 239px;
+      top: 412px;
+      height: 98px;
+    }
+    #gir-t {
+      left: 242px;
+      top: -441px;
+    }
+    img[title="Boys' Cabin"] {
+      left: 517px;
+      top: 213px;
+      height: 86px;
+    }
+    #boy {
+      left: 549px;
+      top: -695px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 459px;
+      top: 140px;
+      height: 66px;
+    }
+    #boy-t {
+      left: 462px;
+      top: -825px;
+    }
+    img[title="Bonfire"] {
+      left: 133px;
+      top: 299px;
+      height: 40px;
+    }
+    #bon {
+      left: 134px;
+      top: -672px;
+    }
+    img[title="Basketball Court"] {
+      left: 427px;
+      top: 339px;
+      height: 53px;
+    }
+    #bask {
+      left: 451px;
+      top: -680px;
+    }
+    img[title="Volleyball Court"] {
+      left: 345px;
+      top: 391px;
+      height: 37px;
+    }
+    #vol {
+      left: 332px;
+      top: -675px;
+    }
+    img[title="Softball Fields"] {
+      left: 84px;
+      top: 465px;
+      height: 154px;
+    }
+    #sof {
+      left: 133px;
+      top: -568px;
+    }
+  }
+/* Smaller then standard 767 (devices and browsers) ----------- */
+  @media screen and (max-width: 767px) {
+    #imageMap {
+      margin-left: 17px;
+    }
+    img[title="Pavilion"] {
+      left: 185px;
+      top: 265px;
+    }
+    #pav {
+      left: 236px;
+      top: -329px;
+    }
+    img[title="Office"] { 
+      left: 293px;
+      top: 197px;
+    }
+    #offi {
+      left: 323px;
+      top: -404px;
+     }
+    img[title="Mothers' Cabin"] {
+      left: 283px;
+      top: 317px;
+    }
+    #mot {
+      left: 299px;
+      top: -357px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 44px;
+      top: 134px;
+      height: 95px; 
+    }
+    #fam {
+      left: 109px;
+      top: -545px;
+    }
+    img[title="Lake"] {
+      left: 238px;
+      top: 434px;
+      height: 168px;
+    }  
+    #lak {
+      left: 377px;
+      top: -240px;
+    }
+    img[title="Girls' Cabin"] {
+      left: 198px;
+      top: 371px;
+      height: 100px;
+    }
+    #gir {
+      left: 234px;
+      top: -349px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 170px;
+      top: 384px;
+      height: 95px;
+    }
+    #gir-t {
+      left: 177px;
+      top: -412px;
+    }
+    img[title="Boys' Cabin"] { 
+      left: 435px;
+      top: 197px;
+      height: 82px;
+    }
+    #boy {
+      left: 468px;
+      top: -658px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 380px;
+      top: 130px;
+      height: 62px;
+    }
+    #boy-t {
+      left: 396px;
+      top: -769px;
+    }
+    img[title="Bonfire"] {
+      left: 69px;
+      top: 278px;
+    }
+    #bon {
+      left: 73px;
+      top: -625px;
+    }
+    img[title="Basketball Court"] {
+      left: 349px;
+      top: 315px;
+    }
+    #bask {
+      left: 359px;
+      top: -628px;
+    }
+    img[title="Volleyball Court"] {
+      left: 271px;
+      top: 365px;
+    }
+    #vol {
+      left: 251px;
+      top: -624px;
+    }
+    img[title="Softball Fields"] {
+      left: 21px;
+      top: 435px;
+      height: 150px; 
+    }
+    #sof {
+      left: 69px;
+      top: -528px;
+    }
+    .mapSections h4 {
+      font-weight: 600;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    img[title="Pavilion"] {
+      left: 139px;
+      top: 254px;
+      height: 68px;
+    }
+    #pav {
+      left: 170px;
+      top: -250px;
+    }
+    img[title="Office"] { 
+      left: 217px;
+      top: 204px;
+      height: 60px;
+    }
+    #offi {
+      left: 236px;
+      top: -315px;
+    }
+    img[title="Mothers' Cabin"] {
+      left: 209px;
+      top: 290px;
+      height: 36px;
+    }
+    #mot {
+      left: 216px;
+      top: -275px;
+    }
+    img[title="Family Tent/Camper Area"] { 
+      left: 34px;
+      top: 157px;
+      height: 69px;
+    }
+    #fam {
+      left: 60px;
+      top: -425px;
+    }
+    img[title="Lake"] {
+      left: 176px;
+      top: 377px;
+      height: 123px;
+    } 
+    #lak {
+      left: 275px;
+      top: -200px;
+    } 
+    img[title="Girls' Cabin"] {
+      left: 146px;
+      top: 328px;
+      height: 77px;
+    }
+    #gir {
+      left: 170px;
+      top: -300px;
+    }
+    img[title="Girls' Tent Area"] {
+      left: 126px;
+      top: 336px;
+      height: 72px;
+    }
+    #gir-t {
+      left: 126px;
+      top: -365px;
+    }
+    img[title="Boys' Cabin"] { 
+      left: 317px;
+      top: 201px;
+      height: 65px;
+    }
+    #boy {
+      left: 345px;
+      top: -545px;
+    }
+    img[title="Boys' Tent Area"] {
+      left: 277px;
+      top: 153px;
+      height: 48px;
+    }
+    #boy-t {
+      left: 273px;
+      top: -640px;
+    }
+    img[title="Bonfire"] {
+      left: 54px;
+      top: 263px;
+      height: 28px;
+    }
+    #bon {
+      left: 52px;
+      top: -545px;
+    }
+    img[title="Basketball Court"] {
+      left: 257px;
+      top: 288px;
+      height: 39px;
+    }
+    #bask {
+      left: 277px;
+      top: -551px;
+    }
+    img[title="Volleyball Court"] {
+      left: 200px;
+      top: 327px;
+      height: 25px;
+    }
+    #vol {
+      left: 182px;
+      top: -562px;
+    }
+    img[title="Softball Fields"] {
+      left: 19px;
+      top: 376px;
+      height: 110px; 
+    }
+    #sof {
+      left: 45px;
+      top: -490px;
+    }
+  }
+/* Smaller then standard 479px (devices and browsers) ----------- */
+  @media screen and (max-width: 479px) {
+   #smallScreen {
+      display: block;
+    }
+   #mapImage {
+      display: none;
+   }
+   #firstPtag {
+      display: none;
+   }
+   #touche {
+      display: none;
+   }
+ }
+</style>
