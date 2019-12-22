@@ -1,0 +1,90 @@
+/******************************
+	General
+******************************/
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000
+}
+
+
+/******************************
+	Navigation
+******************************/
+
+nav {
+
+  
+
+}
+
+nav ul {
+  padding: 0px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0px 7px;
+}
+
+nav a:visited {
+  color: #000;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+nav a.selected {
+  font-weight: bold;
+  color: #555;
+}
+
+
+/******************************
+	Header
+******************************/
+
+header {
+  background-color: darkgoldenrod;
+  padding: 5px;
+  
+}
+
+h1, h2, nav {
+  text-align: center;
+  
+}
+
+
+h2 {
+  font-family: "New Times Romans";
+  font-weight: normal;
+  font-size: 0.75em 
+}
+
+
+/******************************
+	Page: Home
+******************************/
+
+section {
+  text-align: center;
+}
+
+
+/******************************
+	Footer
+******************************/
+
+footer {
+  text-align: center;
+}
+
+
+
