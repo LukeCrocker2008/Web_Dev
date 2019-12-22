@@ -1,0 +1,102 @@
+<div id="results"><style>
+				#fill-out {
+					text-align: center;
+				}
+                                #header {
+                                        max-height: 48px;
+                                }
+				#notTiny {
+					min-width: 30px;
+				}
+                                #product {
+                                        min-width: 57px;
+                                }
+                                p {
+                                        margin-bottom: 0;
+                                }
+				.stubborn {
+					max-width: 40px;
+				}
+			</style><script>
+				function writeValue( id, message ) {
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("adultg").value && id === "adultg_result" ) {
+						message = message * 60;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("children2-6").value && id === "children2-6_result" ) {
+						message = message * 30;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("children7-16").value && id === "children7-16_result" ) {
+						message = message * 60;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (id === "capSum_result" ) {
+						message = 0;
+						message = parseInt(document.getElementById("adultg_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						message += parseInt(document.getElementById("children2-6_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}						
+						message += parseInt(document.getElementById("children7-16_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}							
+						if ( message > 300 ) {
+							message = 300;
+						}
+						manna.value = message;	
+					}					
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("children17-up").value && id === "children17-up_result" ) {
+						message = message * 60;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("tents").value && id === "tents_result" ) {
+						message = message * 30;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("RV_EO").value && id === "RV_EO_result" ) {
+						message = message * 55;
+						manna.value = message;	
+					}
+					var manna = document.getElementById( id );
+					if (message === document.getElementById("RV_ESW").value && id === "RV_ESW_result" ) {
+						message = message * 80;
+						manna.value = message;	
+					}
+					if (message === document.getElementById("wdform_7_element_dollars13").value && id === "wdform_7_element_dollars13" ) {
+						message = 0;
+						message += parseInt(document.getElementById("capSum_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						message += parseInt(document.getElementById("children17-up_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						message += parseInt(document.getElementById("tents_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						message += parseInt(document.getElementById("RV_EO_result").value);
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						message += parseInt(document.getElementById("RV_ESW_result").value);						
+						if( isNaN(message) ) {
+							message += 0;
+						}
+						manna.value = message;	
+					}					
+				}
+			</script><table id="fill-out"><tbody><tr id="header"><td><strong><p id="notTiny">Row:</p></strong></td><td style="text-align: center;" colspan="2"><strong><p>Item Name:</p></strong></td><td><strong><p>Number<br> of Items:</p></strong></td><td><strong><p>Multiply</p></strong></td><td id="product"><strong><p>Result:</p></strong></td></tr><tr><td><strong><p>1</p></strong></td><td style="text-align: center;" colspan="2"><p>Number of Adult Guardians</p></td><td><input class="stubborn" id="adultg" onchange="writeValue('adultg_result', document.getElementById('adultg').value ); writeValue('capSum_result', document.getElementById('capSum_result').value ); writeValue('wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $60</p></td><td><span>$</span><input class="stubborn" id="adultg_result" value="0"></td></tr><tr><td colspan="6"><strong><em><p style="margin: 0px 0px 0px 50px; text-align: left;">(excluding children 17 and over)</p></em></strong></td></tr><tr><td><strong><p>2</p></strong></td><td style="text-align: center;" colspan="2"><p>Number of Children ages 2-6</p></td><td><input class="stubborn" id="children2-6" onchange="writeValue('children2-6_result', document.getElementById('children2-6').value ); writeValue('capSum_result', document.getElementById('capSum_result').value ); writeValue('wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $30</p></td><td><span>$</span><input class="stubborn" id="children2-6_result" value="0"></td></tr><tr><td colspan="6"></td></tr><tr><td><strong><p>3</p></strong></td><td style="text-align: center;" colspan="2"><p>Number of Children ages 7-16</p></td><td><input class="stubborn" id="children7-16" onchange="writeValue('children7-16_result', document.getElementById('children7-16').value ); writeValue('capSum_result', document.getElementById('capSum_result').value ); writeValue( 'wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $60</p></td><td><span>$</span><input class="stubborn" id="children7-16_result" value="0"></td></tr><tr><td colspan="6"></td></tr><tr><td><strong><p>4</p></strong></td><td colspan="4"><p style="text-align: left; margin-left: 50px;">Total toward Family Cap</p></td><td><span>$</span><input class="stubborn" id="capSum_result" onchange="writeValue('wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td></tr><tr><td colspan="6"><strong><em><p style="text-align: left;">(Add the products of rows 1, 2, and 3 with a max of $300)</p></em></strong></td></tr><tr><td><strong><p>5</p></strong></td><td style="text-align: center;" colspan="2">Number of Children ages 17 and over</td><td><input class="stubborn" id="children17-up" onchange="writeValue('children17-up_result', document.getElementById('children17-up').value ); writeValue( 'wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $60</p></td><td><span>$</span><input class="stubborn" id="children17-up_result" value="0"></td></tr><tr><td colspan="6"></td></tr><tr><td><strong><p>6</p></strong></td><td style="text-align: center;" colspan="2"><p>Tent Site</p></td><td><input class="stubborn" id="tents" onchange="writeValue('tents_result', document.getElementById('tents').value ); writeValue( 'wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $30</p></td><td><span>$</span><input class="stubborn" id="tents_result" value="0"></td></tr><tr><td colspan="6"></td></tr><tr><td><strong><p>7</p></strong></td><td style="text-align: center;" colspan="2"><p>RV Site (Electricity Only)</p></td><td><input class="stubborn" id="RV_EO" onchange="writeValue('RV_EO_result', document.getElementById('RV_EO').value ); writeValue( 'wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value);" value="0"></td><td><p>times $55</p></td><td><span>$</span><input class="stubborn" id="RV_EO_result" value="0"></td></tr><tr><td colspan="6"></td></tr><tr><td><strong><p>8</p></strong></td><td style="text-align: center;" colspan="2"><p>RV Site (Electricity, Sewer, &amp; Water)</p></td><td><input class="stubborn" id="RV_ESW" onchange="writeValue( 'RV_ESW_result', document.getElementById('RV_ESW').value ); writeValue( 'wdform_7_element_dollars13', document.getElementById('wdform_7_element_dollars13').value );" value="0"></td><td><p>times $80</p></td><td><span>$</span><input class="stubborn" id="RV_ESW_result" value="0"></td></tr></tbody></table></div>
